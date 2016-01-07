@@ -1,0 +1,90 @@
+.metadata
+.project
+.classpath
+.checkstyle
+.factorypath
+.settings/
+.externalToolBuilders/
+target/
+bin/
+WebContent/META-INF/
+*.db
+*.log
+*.bak
+*.swp
+*.swo
+*~
+*#
+
+closure-library
+Gruntfile.js
+CfwGruntfile.js
+_SpecRunner.html
+jasmine-template.tmpl
+.grunt/
+.jshintrc
+deps.js
+node_modules/
+build/
+.sass-cache
+
+/*.bat
+
+*.iml
+.idea
+﻿# used by builder
+.jshintrc
+CfwGruntfile.js
+Gruntfile.js
+jasmine-template.tmpl
+jsdoc-conf.json
+package.json
+
+# build archives
+target/
+node_modules/
+build/
+
+# eclipse-plugin
+.classpath
+.project
+.checkstyle
+.settings/
+
+# 3rd-party
+
+# sass-cache
+.sass-cache/
+.idea
+
+# idea
+*.iml
+
+# windows path
+C:/
+
+# Less files
+company-hue-mock-front/Gruntfile.js.*.bak
+
+# merge trashes
+*.orig
+
+# npm stack trace
+npm-debug.log
+
+# Intellij
+*.iml
+.idea
+
+# jrebel
+rebel.xml
+
+# sh file to download template files
+template-downloader.sh
+#developer mode
+devmode-custom.properties
+devmode-default-value.properties
+
+#These files are created by Junit Test Tool, Ignore them.
+HtmlResults/
+ObjectFile/
