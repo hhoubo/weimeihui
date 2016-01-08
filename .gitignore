@@ -7,7 +7,7 @@
 .externalToolBuilders/
 target/
 bin/
-WebContent/META-INF/
+webapps/META-INF/
 *.db
 *.log
 *.bak

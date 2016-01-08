@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Weimeihui</title>
+<meta
+	content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'
+	name='viewport'>
+<!-- Bootstrap 3.3.2 -->
+<link href="js/lib/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"
+	type="text/css" />
+<!-- DATE TIME PICKER -->
+<link
+	href="js/lib/bower_components/angular-bootstrap-datetimepicker/src/css/datetimepicker.css"
+	rel="stylesheet" type="text/css" />
+<link href="js/lib/bower_components/angular-ui-grid/ui-grid.js" rel="stylesheet" type="text/css" />
+<link href="js/lib/bower_components/ui-select/dist/select.min.css"
+	rel="stylesheet" type="text/css" />
+<link href="css/custom.css" rel="stylesheet" type="text/css" />
+<!-- DATE TIME PICKER -->
+<link rel="stylesheet"
+	href="js/lib/bower_components/angular-bootstrap-datetimepicker/src/css/datetimepicker.css" />
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body clear-file-input  app-main>
+	<div class="wrapper">
+		<!-- Header Navbar: style can be found in header.less -->
+		<!-- <div ng-include="'views/header.html'"></div> -->
+
+		<div ui-view></div>
+	</div>
+	<script data-main="js/app/main" src="js/lib/require.js"></script>
+</body>
+</html>
