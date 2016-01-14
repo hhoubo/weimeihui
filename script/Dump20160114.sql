@@ -76,45 +76,6 @@ INSERT INTO `items` VALUES ('1','pola','','pola des');
 UNLOCK TABLES;
 
 --
--- Table structure for table `orders`
---
-
-DROP TABLE IF EXISTS `orders`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `orders` (
-  `id` bigint(20) NOT NULL,
-  `customer_id` bigint(20) DEFAULT NULL,
-  `create_time` timestamp NULL DEFAULT NULL,
-  `status` varchar(45) DEFAULT NULL COMMENT '已付款, 已发货未结账, 已结账 ',
-  `item_id` int(11) NOT NULL,
-  `cost_jpy` decimal(10,0) DEFAULT NULL,
-  `quantity` int(11) DEFAULT NULL,
-  `price_jpy` decimal(10,0) DEFAULT NULL,
-  `exchange_rate` decimal(10,4) DEFAULT NULL,
-  `price_cny` decimal(10,2) DEFAULT NULL,
-  `cost_cny` decimal(10,2) DEFAULT NULL,
-  `payment_mode` smallint(6) DEFAULT NULL COMMENT '1. 现金 2. 信用卡 3. 积分',
-  `express_fee_jpy` decimal(10,0) DEFAULT NULL,
-  `package_fee_jpy` decimal(10,0) DEFAULT NULL,
-  `express_fee_cny` decimal(10,2) DEFAULT NULL,
-  `package_fee_cny` decimal(10,2) DEFAULT NULL,
-  PRIMARY KEY (`id`,`item_id`),
-  KEY `fk_orders_1_idx` (`customer_id`),
-  CONSTRAINT `fk_orders_1` FOREIGN KEY (`customer_id`) REFERENCES `customers` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `orders`
---
-
-LOCK TABLES `orders` WRITE;
-/*!40000 ALTER TABLE `orders` DISABLE KEYS */;
-/*!40000 ALTER TABLE `orders` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `purchase_receipts`
 --
 
@@ -335,4 +296,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-01-14 17:37:33
+-- Dump completed on 2016-01-14 18:40:51
