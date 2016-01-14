@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.vimcon.weimeihui.dao.spec.OrderDao;
-import com.vimcon.weimeihui.dto.OrderDto;
+import com.vimcon.weimeihui.model.Order;
 import com.vimcon.weimeihui.service.spec.OrderService;
 
 @Component
@@ -21,23 +21,23 @@ public class OrderServiceImpl implements OrderService {
     private OrderDao orderDao;
 	
 	@Override
-	public List<OrderDto> getMonthlyOrders(int month) {
+	public List<Order> getMonthlyOrders(int month) {
 		return orderDao.getMonthlyOrders(month);
 	}
 
 	@Override
-	public OrderDto createOrder(OrderDto orderDto) {
-		logger.debug("created order dto : ", orderDto);
-		return orderDao.insertOrder(orderDto);
+	public Order createOrder(Order order) {
+		logger.debug("created order object : ", order);
+		return orderDao.insertOrder(order);
 	}
 
 	@Override
-	public OrderDto updateOrder(OrderDto orderDto) {
-		return orderDao.updateOrder(orderDto);
+	public Order updateOrder(Order order) {
+		return orderDao.updateOrder(order);
 	}
 
 	@Override
-	public OrderDto deleteOrder(long orderId) {
+	public Order deleteOrder(long orderId) {
 		return orderDao.deleteOrder(orderId);
 	}
 

@@ -1,14 +1,13 @@
-package com.vimcon.weimeihui.dto;
+package com.vimcon.weimeihui.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ItemDto {
+public class Item {
 	private String id;
-	private String name;
 	private String invoiceName;
-	private String description;
 }

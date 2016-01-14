@@ -3,12 +3,15 @@ package com.vimcon.weimeihui.dto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import org.joda.time.DateTime;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ItemDto {
-	private String id;
+public class UserDto {
+	private String userAccount;
+	private String password;
 	private String name;
-	private String invoiceName;
-	private String description;
+	private DateTime createdDate;
 }

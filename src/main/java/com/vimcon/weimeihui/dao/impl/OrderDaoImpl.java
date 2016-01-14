@@ -13,8 +13,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
 import com.vimcon.weimeihui.dao.spec.OrderDao;
-import com.vimcon.weimeihui.dto.ItemDto;
-import com.vimcon.weimeihui.dto.OrderDto;
+import com.vimcon.weimeihui.model.Order;
 @Component
 public class OrderDaoImpl implements OrderDao {
 	private static final Logger logger = LoggerFactory
@@ -27,28 +26,28 @@ public class OrderDaoImpl implements OrderDao {
     private DataSource dataSource;
     
 	@Override
-	public List<OrderDto> getMonthlyOrders(int month) {
+	public List<Order> getMonthlyOrders(int month) {
 		assert(month >= 1 && month <=12 );
 		return jdbcTemplate
                 .query(SELECT_SQL,
-                        BeanPropertyRowMapper.newInstance(OrderDto.class)).stream()
+                        BeanPropertyRowMapper.newInstance(Order.class)).stream()
                 .collect(Collectors.toList());
 	}
 
 	@Override
-	public OrderDto insertOrder(OrderDto orderDto) {
+	public Order insertOrder(Order orderDto) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public OrderDto updateOrder(OrderDto orderDto) {
+	public Order updateOrder(Order orderDto) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public OrderDto deleteOrder(long orderId) {
+	public Order deleteOrder(long orderId) {
 		// TODO Auto-generated method stub
 		return null;
 	}

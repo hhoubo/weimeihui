@@ -2,16 +2,16 @@ package com.vimcon.weimeihui.dao.spec;
 
 import java.util.List;
 
-import com.vimcon.weimeihui.dto.OrderDto;
+import com.vimcon.weimeihui.model.Order;
 
 public interface OrderDao {
 
-	List<OrderDto> getMonthlyOrders(int month);
+	List<Order> getMonthlyOrders(int month);
 
-	OrderDto insertOrder(OrderDto orderDto);
+	Order insertOrder(Order orderDto);
 
-	OrderDto updateOrder(OrderDto orderDto);
+	Order updateOrder(Order orderDto);
 
-	OrderDto deleteOrder(long orderId);
+	Order deleteOrder(long orderId);
 
 }

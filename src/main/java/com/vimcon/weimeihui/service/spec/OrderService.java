@@ -2,16 +2,16 @@ package com.vimcon.weimeihui.service.spec;
 
 import java.util.List;
 
-import com.vimcon.weimeihui.dto.OrderDto;
+import com.vimcon.weimeihui.model.Order;
 
 public interface OrderService {
 
-	List<OrderDto> getMonthlyOrders(int month);
+	List<Order> getMonthlyOrders(int month);
 
-	OrderDto createOrder(OrderDto orderDto);
+	Order createOrder(Order order);
 
-	OrderDto updateOrder(OrderDto orderDto);
+	Order updateOrder(Order order);
 
-	OrderDto deleteOrder(long orderId);
+	Order deleteOrder(long orderId);
 
 }
