@@ -1,31 +1,20 @@
 define([ //
          'moment',
 // All controllers
-         'app/controller/ApplicationController',//
-         'app/controller/LightmanController',//
-         'app/controller/ResourceManagerController',//
-         'app/controller/DashboardChartController',//
-         'app/controller/EventManagerController',//
-         'app/controller/ScalabilitySettingController',//
-         'app/controller/UserSettingController',//
-         'app/controller/UserController',//
-         'app/controller/JobHistoryChartController',//
-         'app/controller/VisitorsReportController',//
-         'app/controller/ScheduleController',//
-         'app/controller/SideMenuController',
+         'app/controller/OrderController',//
+         'app/controller/ItemController',//
          // All services
-         'app/service/ApplicationService', //
-         'app/service/LightmanService', //
-         'app/service/EventService',//
-         'app/service/ScheduleService'
+         'app/service/OrderService', //
+         'app/service/ItemService', //
+         'app/service/CustomerService'//
 ], function(moment) {
 
 	var module = angular.module('dpp', [ 'ui.router', 'ngResource', 'ngSanitize', 'ui.select',
-			'ui.bootstrap', 'ui.bootstrap.tpls', 'cgBusy', 'ui.bootstrap.datetimepicker',//
+			'ui.bootstrap', 'ui.bootstrap.tpls', 'ui.bootstrap.datetimepicker',//
 			'ui.grid', 'ui.grid.selection', 'ui.grid.cellNav', 'ui.grid.resizeColumns', 
 			'ui.grid.moveColumns', 'ui.grid.pagination', 'ui.utils', 'ui.calendar',//
-			'nvd3', 'ngFileUpload', 'ui.validate', 'daterangepicker',
-			'edp2.notification', 'edp2.jobManager']);
+			'ui.validate', 'daterangepicker',
+			'vimcon.notification', 'vimcon.jobManager']);
 	
 	module.filter('ApplicationTypeFilter',['$rootScope', function($rootScope){
 		if(!$rootScope.ApplicationType){

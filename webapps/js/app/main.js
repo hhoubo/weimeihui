@@ -54,11 +54,11 @@ require
 				app_module : {
 					deps : [ 'jquery', 'adminlte', //
 					'angular', 'angular_messages', 'angular_resource',//
-					'angular_bootstrap', 'angular_bootstrap_tpl', 'angular_busy', 'angular_ui_router',//
+					'angular_bootstrap', 'angular_ui_router',//
 					'angular_ui_util', 'angular_ui_grid', 'angular_sanitize', 'angular_ui_select', //
 					'bootstrap' , 'moment', 'angular_ui_calendar', 'angular_ui_validate',
 					'notification_module', 'job_module' ],
-					exports : 'dpp_module'
+					exports : 'app_module'
 				},
 				notification_module : {
 				    deps : [ 'angular', 'angular_bootstrap' ],
@@ -69,7 +69,7 @@ require
 
 require([ 'bootstrap', 'ngFileUpload', 'daterangepicker', 'datetimepicker', 'ionSlider', 
 		'iCheck', 'knob', 'sparkline', 'chart', 'flotChart', 'jvectormap',
-		'jvectormapWorldMill', 'app/util/jsUtil', 'app/util/configParser','angular_nvd3',//
+		'jvectormapWorldMill', //
 
 		'app_module', //
 		'notification_module'//

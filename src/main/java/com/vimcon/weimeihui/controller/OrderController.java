@@ -20,11 +20,33 @@ public class OrderController {
 	@Autowired
 	public OrderService orderService;
 
-	@RequestMapping(method = RequestMethod.GET, value = "/list/{month}")
+	@RequestMapping(method = RequestMethod.GET, value = "/orders/{month}")
 	@ResponseBody
-	public List<OrderDto> getAllEvents(@PathVariable int month) {
+	public List<OrderDto> getMonthlyOrders(@PathVariable int month) {
 
 		return orderService.getMonthlyOrders(month);
 
 	}
+	
+	@RequestMapping(method = RequestMethod.POST, value = "/orders/{order}")
+	@ResponseBody
+	public OrderDto createOrder(@PathVariable OrderDto orderDto) {
+		return orderService.createOrder(orderDto);
+	}
+	
+	@RequestMapping(method = RequestMethod.PUT, value = "/orders/{order}")
+	@ResponseBody
+	public OrderDto updateOrder(@PathVariable OrderDto orderDto) {
+		return orderService.updateOrder(orderDto);
+	}
+	
+	@RequestMapping(method = RequestMethod.DELETE, value= "orders/{orderId}")
+	@ResponseBody
+	public OrderDto deleteOrder(@PathVariable long orderId) {
+		return orderService.deleteOrder(orderId);
+	}
+	
+	
+	
+
 }

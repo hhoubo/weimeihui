@@ -21,4 +21,6 @@ public class OrderItem {
 	private Money giftCostRMB;
 	private Money costSumJPY;
 	private Money costSumRMB;
+	
+	private long exchangeRage;
 }
