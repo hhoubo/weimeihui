@@ -116,8 +116,8 @@ DROP TABLE IF EXISTS `return_items`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `return_items` (
   `return_receipt_id` varchar(45) NOT NULL,
-  `sale_form_id` varchar(45) NOT NULL,
-  PRIMARY KEY (`return_receipt_id`,`sale_form_id`)
+  `shipment_id` varchar(45) NOT NULL,
+  PRIMARY KEY (`return_receipt_id`,`shipment_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -155,14 +155,39 @@ LOCK TABLES `return_receipts` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `sale_form`
+-- Table structure for table `shipment_items`
 --
 
-DROP TABLE IF EXISTS `sale_form`;
+DROP TABLE IF EXISTS `shipment_items`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `sale_form` (
-  `sales_id` varchar(45) NOT NULL,
+CREATE TABLE `shipment_items` (
+  `shipment_id` varchar(45) NOT NULL,
+  `item_id` varchar(45) NOT NULL,
+  `batch_id` varchar(45) NOT NULL,
+  `amount` int(11) NOT NULL,
+  PRIMARY KEY (`shipment_id`,`item_id`,`batch_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `shipment_items`
+--
+
+LOCK TABLES `shipment_items` WRITE;
+/*!40000 ALTER TABLE `shipment_items` DISABLE KEYS */;
+/*!40000 ALTER TABLE `shipment_items` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `shipment_receipts`
+--
+
+DROP TABLE IF EXISTS `shipment_receipts`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `shipment_receipts` (
+  `shipment_id` varchar(45) NOT NULL,
   `customer_id` bigint(20) NOT NULL,
   `gift` varchar(45) DEFAULT NULL,
   `gift_cost` decimal(20,2) DEFAULT NULL,
@@ -174,42 +199,17 @@ CREATE TABLE `sale_form` (
   `exchange_rate` decimal(10,4) DEFAULT NULL,
   `sale_date` datetime DEFAULT NULL,
   `is_return` int(11) DEFAULT NULL COMMENT '1 true, 0 false',
-  PRIMARY KEY (`sales_id`)
+  PRIMARY KEY (`shipment_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `sale_form`
+-- Dumping data for table `shipment_receipts`
 --
 
-LOCK TABLES `sale_form` WRITE;
-/*!40000 ALTER TABLE `sale_form` DISABLE KEYS */;
-/*!40000 ALTER TABLE `sale_form` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `shipment_items`
---
-
-DROP TABLE IF EXISTS `shipment_items`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `shipment_items` (
-  `sale_form_id` varchar(45) NOT NULL,
-  `item_id` varchar(45) NOT NULL,
-  `batch_id` varchar(45) NOT NULL,
-  `amount` int(11) NOT NULL,
-  PRIMARY KEY (`sale_form_id`,`item_id`,`batch_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `shipment_items`
---
-
-LOCK TABLES `shipment_items` WRITE;
-/*!40000 ALTER TABLE `shipment_items` DISABLE KEYS */;
-/*!40000 ALTER TABLE `shipment_items` ENABLE KEYS */;
+LOCK TABLES `shipment_receipts` WRITE;
+/*!40000 ALTER TABLE `shipment_receipts` DISABLE KEYS */;
+/*!40000 ALTER TABLE `shipment_receipts` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -249,7 +249,7 @@ CREATE TABLE `users` (
   `user_account` varchar(45) NOT NULL,
   `password` varchar(256) DEFAULT NULL,
   `name` varchar(45) DEFAULT NULL,
-  `created_date` varchar(45) DEFAULT NULL,
+  `created_date` datetime DEFAULT NULL,
   PRIMARY KEY (`user_account`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -296,4 +296,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-01-14 18:40:51
+-- Dump completed on 2016-01-14 20:40:17
