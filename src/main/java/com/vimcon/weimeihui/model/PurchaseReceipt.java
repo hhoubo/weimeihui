@@ -11,13 +11,10 @@ import org.joda.time.DateTime;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Order {
-	private long orderId;
-	private DateTime orderDate;
-	private DateTime returnDate;
-	private String customerId;
-	private String customerName;
-	private List<Item> items;
-	private boolean isDone;
-	
+public class PurchaseReceipt {
+	private int receiptId;
+	private DateTime purchaseDate;
+	private String purchaser;
+	private String vendorId;
+	private List<PurchaseItem> purchaseItems;
 }

@@ -8,36 +8,36 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.vimcon.weimeihui.dao.spec.OrderDao;
-import com.vimcon.weimeihui.model.Order;
-import com.vimcon.weimeihui.service.spec.OrderService;
+import com.vimcon.weimeihui.model.ShipmentReceipt;
+import com.vimcon.weimeihui.service.spec.ShipmentService;
 
 @Component
-public class OrderServiceImpl implements OrderService {
+public class ShipmentServiceImpl implements ShipmentService {
 
 	private static final Logger logger = LoggerFactory
-			.getLogger(OrderServiceImpl.class);
+			.getLogger(ShipmentServiceImpl.class);
 
 	@Autowired
     private OrderDao orderDao;
 	
 	@Override
-	public List<Order> getMonthlyOrders(int month) {
+	public List<ShipmentReceipt> getMonthlyOrders(int month) {
 		return orderDao.getMonthlyOrders(month);
 	}
 
 	@Override
-	public Order createOrder(Order order) {
+	public ShipmentReceipt createOrder(ShipmentReceipt order) {
 		logger.debug("created order object : ", order);
 		return orderDao.insertOrder(order);
 	}
 
 	@Override
-	public Order updateOrder(Order order) {
+	public ShipmentReceipt updateOrder(ShipmentReceipt order) {
 		return orderDao.updateOrder(order);
 	}
 
 	@Override
-	public Order deleteOrder(long orderId) {
+	public ShipmentReceipt deleteOrder(long orderId) {
 		return orderDao.deleteOrder(orderId);
 	}
 
