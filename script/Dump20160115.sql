@@ -221,11 +221,12 @@ DROP TABLE IF EXISTS `stock_items`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `stock_items` (
   `item_id` varchar(45) NOT NULL,
-  `purchase_batch` varchar(45) NOT NULL,
+  `purchase_receipt_id` int(11) NOT NULL,
+  `purchase_batch` varchar(45) DEFAULT NULL,
   `remain_amount` int(11) NOT NULL DEFAULT '0',
   `cost_price` decimal(10,2) DEFAULT NULL,
   `currency` varchar(45) DEFAULT NULL COMMENT 'JPY, CNY, HKD',
-  PRIMARY KEY (`item_id`,`purchase_batch`)
+  PRIMARY KEY (`item_id`,`purchase_receipt_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -296,4 +297,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-01-14 20:40:17
+-- Dump completed on 2016-01-15 17:30:11
