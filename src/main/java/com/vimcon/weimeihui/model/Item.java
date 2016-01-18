@@ -9,5 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Item {
 	private String id;
+	private String name;
 	private String invoiceName;
+	private String description;
 }

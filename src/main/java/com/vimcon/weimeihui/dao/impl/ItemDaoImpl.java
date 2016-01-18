@@ -13,7 +13,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
 import com.vimcon.weimeihui.dao.spec.ItemDao;
-import com.vimcon.weimeihui.dto.ItemDto;
+import com.vimcon.weimeihui.dto.Item;
 @Component
 public class ItemDaoImpl implements ItemDao {
 	private static final Logger logger = LoggerFactory
@@ -25,10 +25,10 @@ public class ItemDaoImpl implements ItemDao {
     @Autowired
     private DataSource dataSource;
 	@Override
-	public List<ItemDto> getAllItems() {
+	public List<Item> getAllItems() {
 		return jdbcTemplate
                 .query(SELECT_SQL,
-                        BeanPropertyRowMapper.newInstance(ItemDto.class)).stream()
+                        BeanPropertyRowMapper.newInstance(Item.class)).stream()
                 .collect(Collectors.toList());
 	}
     

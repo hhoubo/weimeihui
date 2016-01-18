@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.vimcon.weimeihui.dao.spec.ItemDao;
-import com.vimcon.weimeihui.dto.ItemDto;
+import com.vimcon.weimeihui.dto.Item;
 import com.vimcon.weimeihui.service.spec.ItemService;
 
 @Component
@@ -20,9 +20,27 @@ public class ItemServiceImpl implements ItemService {
     private ItemDao itemDao;
 
 	@Override
-	public List<ItemDto> getAllItems() {
+	public List<Item> getAllItems() {
 		
 		return itemDao.getAllItems();
+	}
+
+	@Override
+	public Item createItem(Item item) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Item updateItem(Item item) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Item deleteItem(String itemId) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.vimcon.weimeihui.controller.helper.PurchaseHelper;
 import com.vimcon.weimeihui.dto.PathConst;
+import com.vimcon.weimeihui.dto.PurchaseReceiptDto;
 import com.vimcon.weimeihui.model.PurchaseReceipt;
 import com.vimcon.weimeihui.service.spec.PurchaseService;
 import com.vimcon.weimeihui.service.spec.StockService;
@@ -29,6 +31,10 @@ public class PurchaseController {
 	@RequestMapping(method = RequestMethod.POST, headers = { "Content-Type=application/json" })
 	@ResponseBody
 	public PurchaseReceipt addPurchaseReceipt(@RequestBody PurchaseReceipt purchaseReceipt) {
+		PurchaseReceiptDto  purchaseReceiptDto = PurchaseHelper.extractPurchaseReceiptDto(purchaseReceipt);
+		//doto here
+		purchaseService.recordPurchaseReceipt(purchaseReceiptDto);
+		//stockService.stockItems();
 		return null;
 	}
 	
