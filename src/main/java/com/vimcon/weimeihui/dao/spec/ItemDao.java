@@ -2,8 +2,8 @@ package com.vimcon.weimeihui.dao.spec;
 
 import java.util.List;
 
-import com.vimcon.weimeihui.dto.Item;
+import com.vimcon.weimeihui.dto.ItemDto;
 
 public interface ItemDao {
-	List<Item> getAllItems();
+	List<ItemDto> getAllItems();
 }

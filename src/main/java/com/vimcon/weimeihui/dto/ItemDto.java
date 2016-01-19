@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Item {
+public class ItemDto {
 	private String id;
 	private String name;
 	private String invoiceName;

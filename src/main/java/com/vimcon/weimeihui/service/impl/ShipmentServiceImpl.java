@@ -8,6 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.vimcon.weimeihui.dao.spec.OrderDao;
+import com.vimcon.weimeihui.dto.ReturnItemDto;
+import com.vimcon.weimeihui.dto.ShipmentItemDto;
+import com.vimcon.weimeihui.dto.ShipmentReceiptDto;
 import com.vimcon.weimeihui.model.ShipmentReceipt;
 import com.vimcon.weimeihui.service.spec.ShipmentService;
 
@@ -25,20 +28,33 @@ public class ShipmentServiceImpl implements ShipmentService {
 		return orderDao.getMonthlyOrders(month);
 	}
 
-	@Override
-	public ShipmentReceipt createOrder(ShipmentReceipt order) {
-		logger.debug("created order object : ", order);
-		return orderDao.insertOrder(order);
-	}
 
 	@Override
-	public ShipmentReceipt updateOrder(ShipmentReceipt order) {
-		return orderDao.updateOrder(order);
+	public ShipmentReceipt deleteShipmentReceipt(long shipmentId) {
+		return orderDao.deleteOrder(shipmentId);
 	}
 
+
 	@Override
-	public ShipmentReceipt deleteOrder(long orderId) {
-		return orderDao.deleteOrder(orderId);
+	public void createShipmentReceipt(ShipmentReceiptDto shipmentReceiptDto,
+			List<ShipmentItemDto> shipmentItemDtoList) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void updateShipmentReceipt(ShipmentReceiptDto shipmentReceiptDto,
+			List<ShipmentItemDto> shipmentItemDtoList) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void updateReturnMark(List<ReturnItemDto> returnedShipmentReceiptList) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

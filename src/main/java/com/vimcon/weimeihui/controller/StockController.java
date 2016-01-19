@@ -14,6 +14,11 @@ import com.vimcon.weimeihui.dto.PathConst;
 import com.vimcon.weimeihui.model.ItemInStock;
 import com.vimcon.weimeihui.service.spec.StockService;
 
+/**
+ * @author hou-b
+ *
+ */
+
 @Controller
 @RequestMapping(PathConst.STOCK)
 public class StockController {
@@ -21,15 +26,16 @@ public class StockController {
 	@Autowired
 	private StockService stockService; 
 	
+	
 	@RequestMapping(method = RequestMethod.GET, value="/{itemId}")
 	@ResponseBody
-	public List<ItemInStock> findByItemId(@PathVariable String itemId) {
-		return null;
+	public ItemInStock findByItemId(@PathVariable String itemId) {
+		return stockService.findItemInStock(itemId);
 	}
 	@RequestMapping(method = RequestMethod.PUT)
 	@ResponseBody
-	public ItemInStock consumeItem(@RequestBody List<ItemInStock> consumedItem){
-		//reuturn remained items
-		return null;
+	public List<ItemInStock> consumeItems(@RequestBody List<ItemInStock> consumedItems){
+		//return remained items
+		return stockService.consumeItems(consumedItems);
 	}
 }

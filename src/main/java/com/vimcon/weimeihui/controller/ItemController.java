@@ -1,6 +1,7 @@
 package com.vimcon.weimeihui.controller;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,10 +11,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.vimcon.weimeihui.dto.Item;
+import com.vimcon.weimeihui.controller.helper.ItemHelper;
+import com.vimcon.weimeihui.dto.ItemDto;
 import com.vimcon.weimeihui.dto.PathConst;
+import com.vimcon.weimeihui.model.Item;
 import com.vimcon.weimeihui.service.spec.ItemService;
 
+/**
+ * @author hou-b Maintain the item list
+ */
 @Controller
 @RequestMapping(PathConst.ITEM)
 public class ItemController {
@@ -24,26 +30,26 @@ public class ItemController {
 	@RequestMapping(method = RequestMethod.GET, value = "/all")
 	@ResponseBody
 	public List<Item> getAllItems() {
-
-		return itemService.getAllItems();
-
+		return itemService.getAllItems().stream()
+				.map(ItemHelper::convertItemDto2Vo)
+				.collect(Collectors.toList());
 	}
-	
+
 	@RequestMapping(method = RequestMethod.POST, headers = { "Content-Type=application/json" })
 	@ResponseBody
-	public Item createItem(@RequestBody Item item) {
-		return itemService.createItem(item);
+	public ItemDto createItem(@RequestBody Item item) {
+		return itemService.createItem(ItemHelper.convertVo2ItemDto(item));
 	}
-	
+
 	@RequestMapping(method = RequestMethod.PUT)
 	@ResponseBody
-	public Item updateItem(@RequestBody Item item) {
-		return itemService.updateItem(item);
+	public ItemDto updateItem(@RequestBody Item item) {
+		return itemService.updateItem(ItemHelper.convertVo2ItemDto(item));
 	}
-	
-	@RequestMapping(method = RequestMethod.DELETE, value="/{itemId}")
+
+	@RequestMapping(method = RequestMethod.DELETE, value = "/{itemId}")
 	@ResponseBody
-	public Item deleteItem(@PathVariable String itemId) {
+	public ItemDto deleteItem(@PathVariable String itemId) {
 		return itemService.deleteItem(itemId);
 	}
 }

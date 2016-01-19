@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.vimcon.weimeihui.controller.helper.PurchaseHelper;
 import com.vimcon.weimeihui.dto.PathConst;
 import com.vimcon.weimeihui.dto.PurchaseReceiptDto;
+import com.vimcon.weimeihui.dto.StockItemDto;
 import com.vimcon.weimeihui.model.PurchaseReceipt;
 import com.vimcon.weimeihui.service.spec.PurchaseService;
 import com.vimcon.weimeihui.service.spec.StockService;
@@ -30,23 +31,25 @@ public class PurchaseController {
 	
 	@RequestMapping(method = RequestMethod.POST, headers = { "Content-Type=application/json" })
 	@ResponseBody
-	public PurchaseReceipt addPurchaseReceipt(@RequestBody PurchaseReceipt purchaseReceipt) {
+	public void addPurchaseReceipt(@RequestBody PurchaseReceipt purchaseReceipt) {
 		PurchaseReceiptDto  purchaseReceiptDto = PurchaseHelper.extractPurchaseReceiptDto(purchaseReceipt);
-		//doto here
+		List<StockItemDto> stockItemDtoList = PurchaseHelper.extractStockItemDto(purchaseReceipt);
 		purchaseService.recordPurchaseReceipt(purchaseReceiptDto);
-		//stockService.stockItems();
-		return null;
+		stockService.pushItemsInStock(stockItemDtoList);
 	}
 	
 	@RequestMapping(method = RequestMethod.PUT)
 	@ResponseBody
-	public PurchaseReceipt updatePurchaseReceipt(@RequestBody PurchaseReceipt purchaseReceipt) {
-		return null;
+	public void updatePurchaseReceipt(@RequestBody PurchaseReceipt purchaseReceipt) {
+		PurchaseReceiptDto  purchaseReceiptDto = PurchaseHelper.extractPurchaseReceiptDto(purchaseReceipt);
+		List<StockItemDto> stockItemDtoList = PurchaseHelper.extractStockItemDto(purchaseReceipt);
+		purchaseService.updatePurchaseReceipt(purchaseReceiptDto);
+		stockService.modifyItemsInStock(stockItemDtoList);
 	}
 	
 	@RequestMapping(method = RequestMethod.GET)
 	@ResponseBody
 	public List<PurchaseReceipt> findPurchaseReceipt(@RequestParam DateTime startDate, @RequestParam DateTime endDate) {
-		return null;
+		return purchaseService.findPurchaseReceipt(startDate, endDate);
 	}
 }

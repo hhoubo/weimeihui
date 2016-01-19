@@ -2,16 +2,16 @@ package com.vimcon.weimeihui.service.spec;
 
 import java.util.List;
 
-import com.vimcon.weimeihui.dto.Item;
+import com.vimcon.weimeihui.dto.ItemDto;
 
 public interface ItemService {
 
-	List<Item> getAllItems();
+	List<ItemDto> getAllItems();
 
-	Item createItem(Item item);
+	ItemDto createItem(ItemDto item);
 
-	Item updateItem(Item item);
+	ItemDto updateItem(ItemDto item);
 
-	Item deleteItem(String itemId);
+	ItemDto deleteItem(String itemId);
 
 }

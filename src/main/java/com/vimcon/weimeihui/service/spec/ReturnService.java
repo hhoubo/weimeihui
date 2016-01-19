@@ -1,10 +1,9 @@
 package com.vimcon.weimeihui.service.spec;
 
-import com.vimcon.weimeihui.model.ReturnReceipt;
-import com.vimcon.weimeihui.model.ShipmentReceipt;
+import com.vimcon.weimeihui.dto.ReturnReceiptDto;
 
 public interface ReturnService {
 
-	ShipmentReceipt returnMoney(ReturnReceipt returnReceipt);
+	void saveReturnReceipt(ReturnReceiptDto returnReceiptDto);
 
 }
