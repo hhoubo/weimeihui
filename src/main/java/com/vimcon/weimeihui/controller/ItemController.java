@@ -18,7 +18,8 @@ import com.vimcon.weimeihui.model.Item;
 import com.vimcon.weimeihui.service.spec.ItemService;
 
 /**
- * @author hou-b Maintain the item list
+ * Maintain the item list
+ * @author hou-b 
  */
 @Controller
 @RequestMapping(PathConst.ITEM)
@@ -49,7 +50,7 @@ public class ItemController {
 
 	@RequestMapping(method = RequestMethod.DELETE, value = "/{itemId}")
 	@ResponseBody
-	public ItemDto deleteItem(@PathVariable String itemId) {
-		return itemService.deleteItem(itemId);
+	public Item deleteItem(@PathVariable String itemId) {
+		return ItemHelper.convertItemDto2Vo(itemService.deleteItem(itemId));
 	}
 }

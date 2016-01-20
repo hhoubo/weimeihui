@@ -11,9 +11,9 @@ public interface PurchaseService {
 
 	List<PurchaseReceipt> findPurchaseReceipt(DateTime startDate, DateTime endDate);
 
-	void recordPurchaseReceipt(PurchaseReceiptDto purchaseReceiptDto);
+	void recordPurchaseReceipt(List<PurchaseReceiptDto> purchaseReceiptDtoList);
 
-	void updatePurchaseReceipt(PurchaseReceiptDto purchaseReceiptDto);
+	void updatePurchaseReceipt(List<PurchaseReceiptDto> purchaseReceiptDtoList);
 
 
 }

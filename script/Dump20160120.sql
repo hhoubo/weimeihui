@@ -273,6 +273,7 @@ DROP TABLE IF EXISTS `vendors`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `vendors` (
   `vendor_id` varchar(45) NOT NULL,
+  `name` varchar(45) NOT NULL,
   `address` varchar(200) DEFAULT NULL,
   `tel` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`vendor_id`)
@@ -297,4 +298,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-01-15 17:30:11
+-- Dump completed on 2016-01-20 20:52:09

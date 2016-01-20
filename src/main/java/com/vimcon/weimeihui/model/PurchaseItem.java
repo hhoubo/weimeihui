@@ -13,6 +13,6 @@ public class PurchaseItem {
 	private String itemId;
 	private int amount;
 	private BigDecimal price;
-	private String cruuency;
+	private String currency;
 	private BigDecimal total;
 }

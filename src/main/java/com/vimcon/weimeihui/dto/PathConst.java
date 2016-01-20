@@ -9,5 +9,7 @@ public class PathConst {
     public static final String PURCHASE = "/purchase";
     public static final String STOCK = "/stock";
     public static final String RETURN = "/return";
+    public static final String VENDOR = "/vendor";
+    
 
 }

@@ -32,18 +32,18 @@ public class PurchaseController {
 	@RequestMapping(method = RequestMethod.POST, headers = { "Content-Type=application/json" })
 	@ResponseBody
 	public void addPurchaseReceipt(@RequestBody PurchaseReceipt purchaseReceipt) {
-		PurchaseReceiptDto  purchaseReceiptDto = PurchaseHelper.extractPurchaseReceiptDto(purchaseReceipt);
+		List<PurchaseReceiptDto>  purchaseReceiptDtoList = PurchaseHelper.extractPurchaseReceiptDto(purchaseReceipt);
 		List<StockItemDto> stockItemDtoList = PurchaseHelper.extractStockItemDto(purchaseReceipt);
-		purchaseService.recordPurchaseReceipt(purchaseReceiptDto);
+		purchaseService.recordPurchaseReceipt(purchaseReceiptDtoList);
 		stockService.pushItemsInStock(stockItemDtoList);
 	}
 	
 	@RequestMapping(method = RequestMethod.PUT)
 	@ResponseBody
 	public void updatePurchaseReceipt(@RequestBody PurchaseReceipt purchaseReceipt) {
-		PurchaseReceiptDto  purchaseReceiptDto = PurchaseHelper.extractPurchaseReceiptDto(purchaseReceipt);
+		List<PurchaseReceiptDto>  purchaseReceiptDtoList = PurchaseHelper.extractPurchaseReceiptDto(purchaseReceipt);
 		List<StockItemDto> stockItemDtoList = PurchaseHelper.extractStockItemDto(purchaseReceipt);
-		purchaseService.updatePurchaseReceipt(purchaseReceiptDto);
+		purchaseService.updatePurchaseReceipt(purchaseReceiptDtoList);
 		stockService.modifyItemsInStock(stockItemDtoList);
 	}
 	

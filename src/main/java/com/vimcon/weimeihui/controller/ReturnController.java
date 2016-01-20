@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -35,6 +36,29 @@ public class ReturnController {
 		List<ReturnItemDto> returnedShipmentReceiptList =  ReturnReceiptHelper.extractReturnedShipmentReceipt(returnReceipt);
 		//shipmentReceiptService update return status
 		shipmentService.updateReturnMark(returnedShipmentReceiptList);
+	}
+	
+	@RequestMapping(method= RequestMethod.PUT)
+	@ResponseBody
+	public void updateReturnReceipt(@RequestBody ReturnReceipt returnReceipt){
+		
+	}
+	
+	@RequestMapping(method= RequestMethod.GET, value="/{returnReceiptId}")
+	@ResponseBody
+	public ReturnReceipt getDetailReturnReceipt(@PathVariable String returnReceiptId){
+		return null;
+	}
+	
+	/**
+	 * 
+	 * @param month 1~12
+	 * @return
+	 */
+	@RequestMapping(method= RequestMethod.GET, value="/{month}")
+	@ResponseBody
+	public List<ReturnReceipt> getReturnReceiptList(@PathVariable int month){
+		return null;
 	}
 
 }
