@@ -10,8 +10,8 @@ public interface ItemService {
 
 	ItemDto createItem(ItemDto item);
 
-	ItemDto updateItem(ItemDto item);
+	boolean updateItem(ItemDto item);
 
-	ItemDto deleteItem(String itemId);
+	boolean deleteItem(String itemId);
 
 }

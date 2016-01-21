@@ -41,13 +41,22 @@ public class ReturnController {
 	@RequestMapping(method= RequestMethod.PUT)
 	@ResponseBody
 	public void updateReturnReceipt(@RequestBody ReturnReceipt returnReceipt){
+		//TODO implement it
+		
+		//get original return receipt to confirm if the receipt exist
+		
+		//delete original returnreceiptDto
+		
+		//revert the return mark
+		
+		//insert the new return receipt
 		
 	}
 	
 	@RequestMapping(method= RequestMethod.GET, value="/{returnReceiptId}")
 	@ResponseBody
 	public ReturnReceipt getDetailReturnReceipt(@PathVariable String returnReceiptId){
-		return null;
+		return returnService.getDetailReturnReceipt(returnReceiptId);
 	}
 	
 	/**
@@ -58,7 +67,7 @@ public class ReturnController {
 	@RequestMapping(method= RequestMethod.GET, value="/{month}")
 	@ResponseBody
 	public List<ReturnReceipt> getReturnReceiptList(@PathVariable int month){
-		return null;
+		return returnService.getReturnReceiptListInMonth(month);
 	}
 
 }

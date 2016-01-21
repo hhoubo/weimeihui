@@ -27,20 +27,17 @@ public class ItemServiceImpl implements ItemService {
 
 	@Override
 	public ItemDto createItem(ItemDto item) {
-		// TODO Auto-generated method stub
-		return null;
+		return itemDao.insert(item);
 	}
 
 	@Override
-	public ItemDto updateItem(ItemDto item) {
-		// TODO Auto-generated method stub
-		return null;
+	public boolean updateItem(ItemDto item) {
+		return 1== itemDao.update(item);
 	}
 
 	@Override
-	public ItemDto deleteItem(String itemId) {
-		// TODO Auto-generated method stub
-		return null;
+	public boolean deleteItem(String itemId) {
+		return 1 == itemDao.delete(itemId);
 	}
 
 }

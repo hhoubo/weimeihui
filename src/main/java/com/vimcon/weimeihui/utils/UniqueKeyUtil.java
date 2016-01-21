@@ -7,4 +7,9 @@ public class UniqueKeyUtil {
 		return null;
 	}
 
+	public static String getItemId() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

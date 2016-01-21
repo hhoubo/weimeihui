@@ -44,13 +44,13 @@ public class ItemController {
 
 	@RequestMapping(method = RequestMethod.PUT)
 	@ResponseBody
-	public ItemDto updateItem(@RequestBody Item item) {
+	public boolean updateItem(@RequestBody Item item) {
 		return itemService.updateItem(ItemHelper.convertVo2ItemDto(item));
 	}
 
 	@RequestMapping(method = RequestMethod.DELETE, value = "/{itemId}")
 	@ResponseBody
-	public Item deleteItem(@PathVariable String itemId) {
-		return ItemHelper.convertItemDto2Vo(itemService.deleteItem(itemId));
+	public boolean deleteItem(@PathVariable String itemId) {
+		return itemService.deleteItem(itemId);
 	}
 }
