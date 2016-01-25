@@ -8,7 +8,7 @@ public class UniqueKeyUtilTest {
 
 	@Test
 	public void testGetPurchaseBatch() {
-		fail("get purchase batch id : " + UniqueKeyUtil.getPurchaseBatch(UniqueKeyUtil.getItemId()));
+		fail("get purchase batch id : " + UniqueKeyUtil.getPurchaseBatch());
 	}
 
 	@Test

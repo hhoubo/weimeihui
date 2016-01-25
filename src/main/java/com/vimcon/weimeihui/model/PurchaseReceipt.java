@@ -12,7 +12,7 @@ import org.joda.time.DateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 public class PurchaseReceipt {
-	private int receiptId;
+	private String receiptId;
 	private DateTime purchaseDate;
 	private String purchaser;
 	private String vendorId;

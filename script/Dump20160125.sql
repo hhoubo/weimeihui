@@ -25,7 +25,7 @@ DROP TABLE IF EXISTS `customers`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `customers` (
-  `id` bigint(20) NOT NULL,
+  `id` varchar(45) NOT NULL,
   `account_id` varchar(45) DEFAULT NULL,
   `name` varchar(45) NOT NULL,
   `address_country` varchar(45) DEFAULT NULL,
@@ -83,7 +83,7 @@ DROP TABLE IF EXISTS `purchase_receipts`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `purchase_receipts` (
-  `receipt_id` int(11) NOT NULL,
+  `receipt_id` varchar(45) NOT NULL,
   `item_id` varchar(45) NOT NULL,
   `amount` int(11) DEFAULT NULL,
   `price` decimal(20,2) DEFAULT NULL,
@@ -188,7 +188,7 @@ DROP TABLE IF EXISTS `shipment_receipts`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `shipment_receipts` (
   `shipment_id` varchar(45) NOT NULL,
-  `customer_id` bigint(20) NOT NULL,
+  `customer_id` varchar(45) NOT NULL,
   `gift` varchar(45) DEFAULT NULL,
   `gift_cost` decimal(20,2) DEFAULT NULL,
   `gift_currency` varchar(45) DEFAULT NULL,
@@ -298,4 +298,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-01-20 20:52:09
+-- Dump completed on 2016-01-25 18:18:29

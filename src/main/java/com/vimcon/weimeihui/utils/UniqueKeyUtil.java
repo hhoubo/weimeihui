@@ -1,17 +1,31 @@
 package com.vimcon.weimeihui.utils;
 
-import com.eaio.uuid.UUIDGen;
+import org.joda.time.DateTime;
+
+import com.eaio.uuid.UUID;
 
 public class UniqueKeyUtil {
 
-	public static String getPurchaseBatch(String itemId) {
-		//timestamp order
-		return itemId + UUIDGen.newTime();
+	public static String getPurchaseBatch() {
+		return DateTime.now().toString("yyyyMMddHHmmssfffffff");
 	}
 
 	public static String getItemId() {
-		//numberical 
-		return String.valueOf(UUIDGen.getClockSeqAndNode());
+		return "ITEM-" + new UUID().toString();
 	}
-
+	public static String getCustomerId() {
+		return	"CUSTOMER-" +  new UUID().toString();
+	}
+	public static String getPurchaseReceiptId(){
+		return "PURCHASE-" + new UUID().toString();
+	}
+	public static String getReturnID(){
+		return "RETURN-" + new UUID().toString();
+	}
+	public static String getShipmentID(){
+		return "SHIPMENT-" + new UUID().toString();
+	}
+	public static String getVendorID(){
+		return "VENDOR-" + new UUID().toString();
+	}
 }

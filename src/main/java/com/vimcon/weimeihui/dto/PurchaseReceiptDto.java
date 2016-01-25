@@ -17,7 +17,7 @@ import org.joda.time.DateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 public class PurchaseReceiptDto {
-	private int receiptId;
+	private String receiptId;
 	private String itemId;
 	private int amount;
 	private BigDecimal price;

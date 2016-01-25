@@ -15,7 +15,7 @@ import org.joda.time.DateTime;
 @NoArgsConstructor
 public class ShipmentReceipt {
 	private String shipmentId;
-	private int customerId;
+	private String customerId;
 	private String customerName; //from customer table
 	private String gift;
 	private BigDecimal giftCost;

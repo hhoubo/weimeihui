@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 public class ItemInStock {
 	private String itemId;
 	private String invoiceName; //from items table
-	private int purchaseReceiptId;
+	private String purchaseReceiptId;
 	private String purchaseBatch;
 	private int remainAmount;
 	private BigDecimal costPrice;
